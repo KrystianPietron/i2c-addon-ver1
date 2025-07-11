@@ -1,6 +1,6 @@
 name: "i2c-addon first"
 description: "My first real add-on!"
-version: "1.0.0"
+version: "1.0.1"
 slug: "addon"
 init: false
 arch:
