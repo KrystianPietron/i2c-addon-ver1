@@ -39,7 +39,7 @@ jobs:
             --platform linux/arm64/v8 \
             --build-arg BUILD_FROM=debian:bookworm-slim \
             -t ghcr.io/${{ env.REPO_OWNER_LOWERCASE }}/addon:${{ env.ADDON_VERSION }} \
-            ./addon-i2c-ver1
+            ./addon
 
       - name: Push image
         run: |
