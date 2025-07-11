@@ -1,3 +1,4 @@
-#!/usr/bin/with-contenv bashio
+#!/bin/sh
+set -e
 
 echo "Hello world!"
