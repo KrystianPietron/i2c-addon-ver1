@@ -25,10 +25,12 @@ jobs:
       - name: Set lowercase repo owner
         run: echo "REPO_OWNER_LOWERCASE=$(echo '${{ github.repository_owner }}' | tr '[:upper:]' '[:lower:]')" >> $GITHUB_ENV
 
-      - name: Get addon version
+      - name: Get version from config.yaml
         run: |
-          ADDON_VERSION=$(jq -r '.version' ./addon/config.yaml)
-          echo "ADDON_VERSION=$ADDON_VERSION" >> $GITHUB_ENV
+          sudo wget -qO /usr/local/bin/yq https://github.com/mikefarah/yq/releases/latest/download/yq_linux_amd64
+          sudo chmod +x /usr/local/bin/yq
+          ADDON_VERSION=$(yq -r '.version' ./addon/config.yaml)
+          echo "Version is: $ADDON_VERSION"
 
       - name: Build singlearch ARM64
         run: |
