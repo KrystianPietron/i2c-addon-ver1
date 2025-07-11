@@ -27,7 +27,7 @@ jobs:
 
       - name: Get addon version
         run: |
-          ADDON_VERSION=$(jq -r '.version' ./addon/config.json)
+          ADDON_VERSION=$(jq -r '.version' ./addon/config.yaml)
           echo "ADDON_VERSION=$ADDON_VERSION" >> $GITHUB_ENV
 
       - name: Build singlearch ARM64
